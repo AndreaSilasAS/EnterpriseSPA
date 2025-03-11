@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Clone the public GitHub repository: https://github.com/AndreaSilasAS/EnterpriseSPA
+
+Open the cloned repository folder in Visual Studio Code.
+
+Open the PowerShell terminal in Visual Studio Code and execute the following commands:
+
+npm install
+npm run start
+Once the server is running, open the URL http://localhost:4200 in a browser to see the application running
