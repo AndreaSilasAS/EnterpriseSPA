@@ -1,0 +1,98 @@
+<mat-accordion>
+    <mat-expansion-panel matRipple [expanded]="true" class="filter-expansion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="filter-title">
+          Enterprise Manager
+        </mat-panel-title>
+        <mat-panel-description class="justified-end">
+          Click to display / hide
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="expansion-panel-content">
+        <span class="expansion-text">This is a Single Page Application (SPA) build with Angular 13, wich serves as fronted for a .NET 6 WebApi backend. The WebApi is responsible for managing companies, and the Angular frontend communicates with it through HTTP requests. Backend was developed with the Domain-Driven Design (DDD) pattern, it exposes various endpoints for retrieving, creating and updating companies.</span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+  <div class="button-container">
+    <div class="button-right">
+      <button mat-stroked-button class="default-button" (click)="openDialogNewCompany()">
+        <mat-icon class="icon-font-size">add</mat-icon>New Company
+      </button>
+    </div>
+  </div>
+  
+  <div class="handover-wrapper task-report-container">
+    <ng-container>
+      <div class="data-table">
+        <div class="vy-table-container">
+            <mat-table #table [dataSource]="dataSource" matSort matSortActive="name" matSortDirection="asc">
+
+            <ng-container matColumnDef="name">
+              <mat-header-cell *matHeaderCellDef>
+                Name
+              </mat-header-cell>
+              <mat-cell *matCellDef="let company">
+                {{ company.name }}
+              </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="exchange">
+                <mat-header-cell *matHeaderCellDef>
+                  Exchange
+                </mat-header-cell>
+                <mat-cell *matCellDef="let company">
+                  {{ company.exchange }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="ticker">
+                <mat-header-cell *matHeaderCellDef>
+                  Ticker
+                </mat-header-cell>
+                <mat-cell *matCellDef="let company">
+                  {{ company.ticker }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="isin">
+                <mat-header-cell *matHeaderCellDef>
+                    Isin
+                </mat-header-cell>
+                <mat-cell *matCellDef="let company">
+                  {{ company.isin }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="website">
+                <mat-header-cell *matHeaderCellDef>
+                    Website
+                </mat-header-cell>
+                <mat-cell *matCellDef="let company">
+                  {{ company.website }}
+                </mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="edit">
+              <mat-header-cell *matHeaderCellDef rrowPosition="after">
+                Edit
+              </mat-header-cell>
+              <mat-cell *matCellDef="let element">
+                <div>
+                  <button mat-stroked-button class="cell-stroke-button"
+                    (click)="$event.stopPropagation(); openDialogEditCompany(element)">
+                    Edit
+                  </button>
+                </div>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="element-row">
+            </mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[25, 50, 75, 100]"></mat-paginator>
+        </div>
+      </div>
+    </ng-container>
+</div>

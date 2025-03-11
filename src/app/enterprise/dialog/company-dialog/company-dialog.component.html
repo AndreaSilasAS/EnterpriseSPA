@@ -1,0 +1,37 @@
+<h1 class="dialog-title" mat-dialog-title *ngIf="action === DialogAction.ADD" mat-dialog-title>
+    New Company
+</h1>
+<h1 class="dialog-title" mat-dialog-title *ngIf="action === DialogAction.EDIT" mat-dialog-title>
+    Edit Company
+</h1>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+    <div mat-dialog-content class="company-form-grid">
+        <mat-form-field class="name">
+            <mat-label>Name</mat-label>
+            <textarea  matInput formControlName="name" rows="2"></textarea>
+        </mat-form-field>
+        <mat-form-field class="exchange">
+            <mat-label>Exchange</mat-label>
+            <textarea  matInput formControlName="exchange" rows="2"></textarea>
+        </mat-form-field>
+        <mat-form-field class="ticker">
+            <mat-label>Ticker</mat-label>
+            <textarea  matInput formControlName="ticker" rows="2"></textarea>
+        </mat-form-field>
+        <mat-form-field class="isin">
+            <mat-label>Isin</mat-label>
+            <textarea  matInput formControlName="isin" rows="2"></textarea>
+        </mat-form-field>
+        <mat-form-field class="website">
+            <mat-label>Website</mat-label>
+            <textarea  matInput formControlName="website" rows="2"></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="dialog-actions-footer">
+        <div class="dialog-actions-buttons">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-flat-button color="primary" type="submit" *ngIf="action === DialogAction.EDIT">Save</button>
+        <button mat-flat-button color="primary" type="submit" *ngIf="action === DialogAction.ADD">Add</button>
+        </div>
+    </div>
+</form>
